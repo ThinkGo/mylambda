@@ -39,9 +39,15 @@ public class ExceptionHandlingInLambdas {
 		};
 		process(someNumbers, keyExeption , biConsumer);
 */
-		BiConsumer<Integer, Integer> biConsumer = (x, y) -> System.out.println(x/y);
-		process(someNumbers, keyExeption, wrapperLambda(biConsumer));//later you can inline
-
+		//6. extract into local variable to undertand functional interface in/out parm signature 
+//		BiConsumer<Integer, Integer> biConsumer = (x, y) -> System.out.println(x/y);
+//		process(someNumbers, keyExeption, wrapperLambda(biConsumer));//later you can inline
+		
+		//7 inline
+		process(someNumbers, keyExeption, wrapperLambda((x, y) -> System.out.println(x/y)));
+		
+		//TODO 8.convert WrapperLambda to Generic instead of only Integer
+		//process(someNumbers, keyExeption, wrapperLambdaGenerics((x, y) -> System.out.println(x/y)));
 	}
 
 	private static BiConsumer<Integer, Integer> wrapperLambda(BiConsumer<Integer, Integer> biConsumer) {
@@ -52,7 +58,7 @@ public class ExceptionHandlingInLambdas {
 			try {
 				biConsumer.accept(x, y);
 			} catch (Exception e) {
-				System.out.println("decent singline calling program"+e.getMessage());
+				System.out.println("exception in lambda - decent singline calling program"+e.getMessage());
 			}
 		}; 
 	}
