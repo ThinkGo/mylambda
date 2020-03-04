@@ -1,2 +1,16 @@
+# Eclipse
+.classpath
+.project
+.settings/
 
-target/classes/META-INF/maven/java8learn/mylambda/pom.properties
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
