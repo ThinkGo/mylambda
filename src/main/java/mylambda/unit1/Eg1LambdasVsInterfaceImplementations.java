@@ -6,7 +6,7 @@ public class Eg1LambdasVsInterfaceImplementations {
 		Greeter greeter = new Greeter();
 		greeter.perform();
 		
-		Greetings lambdaGreeting = () -> System.out.println("hello world");
+		Greetings_AnnotatedAsFi lambdaGreeting = () -> System.out.println("hello world");
 		lambdaGreeting.perform();
 
 	}
